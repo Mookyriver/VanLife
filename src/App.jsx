@@ -4,9 +4,13 @@ import { BrowserRouter, Routes, Route , Link} from 'react-router-dom'
 
 import Home from './Pages/Home'
 import About from './Pages/About'
-import Vans from './Pages/Vans'
-import VanDetail from './Pages/VanDetail'
+import Vans from './Pages/Vans/Vans'
+import VanDetail from './Pages/Vans/VanDetail'
+import Dashboard from './Pages/Host/Dashboard'
+import Income from './Pages/Host/Income'
+import Reviews from './Pages/Host/Reviews'
 import "./server"
+import Layout from './components/Layout'
 
 function App() {
   
@@ -15,21 +19,19 @@ function App() {
     <>
      <BrowserRouter>
 
-      <header>
-
-        <Link className='site-logo' to='/'>#VANLIFE</Link>
-        <nav>
-
-        <Link to='/about'>About</Link>
-        <Link to='/vans'>Vans</Link>
-
-        </nav>
-      </header>
+      
       <Routes>
-        <Route path='/' element={<Home />}/>
-        <Route path='/about' element={<About />}/>
-        <Route path='/vans' element={<Vans/>}/>
-        <Route path="/vans/:id" element={<VanDetail />} />
+
+        <Route element={<Layout />}>
+
+          <Route path='/' element={<Home />}/>
+          <Route path='/about' element={<About />}/>
+          <Route path='/vans' element={<Vans/>}/>
+          <Route path="/vans/:id" element={<VanDetail />} />
+          <Route path="/host" element={<Dashboard />} />
+          <Route path="/host/income" element={<Income />} />
+          <Route path="/host/reviews" element={<Reviews />} />
+        </Route>
         
 
       </Routes>
