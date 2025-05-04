@@ -1,9 +1,10 @@
 import React from 'react'
 import { NavLink,Link } from 'react-router-dom'
+import imageUrl from "../assets/avatar-icon.png"
 
 const Header = () => {
 
-  const isActive ={
+  const activeStyle ={
     fontWeight: 'bold',
     textDecoration: 'underline',
     color: '#161616'
@@ -12,9 +13,15 @@ const Header = () => {
         <header>
             <Link className="site-logo" to="/">#VanLife</Link>
             <nav>
-                <NavLink className={({isActive}) => isActive? 'active-link':null} to="/host">Host</NavLink>
-                <NavLink className={({isActive}) => isActive? 'active-link':null} to="/about">About</NavLink>
-                <NavLink className={({isActive}) => isActive? 'active-link':null} to="/vans">Vans</NavLink>
+                <NavLink style={({isActive}) => isActive? activeStyle:null} to="/host">Host</NavLink>
+                <NavLink style={({isActive}) => isActive? activeStyle:null} to="/about">About</NavLink>
+                <NavLink style={({isActive}) => isActive? activeStyle:null} to="/vans">Vans</NavLink>
+                <Link to="login" className="login-link">
+                    <img 
+                        src={imageUrl} 
+                        className="login-icon"
+                    />
+                </Link>
             </nav>
         </header>
   )
